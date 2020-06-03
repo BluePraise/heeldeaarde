@@ -1,10 +1,9 @@
 /*
-Theme Name: Heel De aarde
+Theme Name: Heel de Aarde
 Text Domain: heeldeaarde
 Version: 1.0
-Description: Child theme, based on Twenty Twenty.
+Description: Heel de Aarde
 Author: Magalie Chetrit
-Template: twentytwenty
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,22 +15,553 @@ Use it to make something cool, have fun, and share what you've learned
 with others.
 */
 
-/* Override parent styles. */
-
-
-
-/* JS spinner for slow connections */
-@keyframes spinner {
-    to {transform: rotate(360deg);}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+    word-wrap: break-word;
 }
 
-.js-loader {
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+html,
+body {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+}
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+    outline: 0 !important;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.bg:before {
+    content: "";
+    background-image: url('img/bg.jpg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    z-index: -1;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+#site-content {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+
+a,
+button.link {
+    font-family: sans-serif;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover,
+button.link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.link,
+button.link {
+    background: none;
+    border: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.flex {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+
+}
+
+.grid-col-4 {
+    grid-template-columns: repeat(4, 25%);
+}
+
+h1.site-title a {
+    display: block;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 100px;
+    padding-left: 60px;
+}
+
+.footer-group {
+    background-color: black;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-group .grid {
+    border-top: 1px solid white;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px 20px;
+}
+
+.footer-group .grid div {
+    display: flex;
+}
+
+.footer-social {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    align-items: center;
+}
+
+.footer-social a,
+.footer-social .link {
+    margin-right: 40px;
+}
+
+
+.footer-credits {
+    grid-column-start: 4;
+    justify-content: flex-end;
+}
+
+/* Base Transitions -------------------------- */
+
+a,
+path {
+    transition: all 0.15s linear;
+}
+
+/* Screen Reader Text ------------------------ */
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+    word-break: normal;
+}
+
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    -webkit-clip-path: none;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    right: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+
+/* Skip Link --------------------------------- */
+
+.skip-link {
+    left: -9999rem;
+    top: 2.5rem;
+    z-index: 999999999;
+    text-decoration: underline;
+}
+
+.skip-link:focus {
+    display: block;
+    left: 6px;
+    top: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    z-index: 100000;
+    right: auto;
+}
+
+
+
+
+/* Bootstrap Modals */
+/*
+// Modals
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+// Kill the scroll on the body
+*/
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.affix {
+    position: fixed;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
     display: none;
-    margin-top: 1em;
-    text-align: center;
-    padding: .7em;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
 }
 
-.js-loader img {
-    animation: spinner .6s linear infinite;
+.modal-body {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    -o-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out, -o-transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    outline: 0;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+
+.modal-backdrop.fade {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-header .close {
+    margin-top: -2px;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
+.modal-footer .btn+.btn {
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.modal-footer .btn-group .btn+.btn {
+    margin-left: -1px;
+}
+
+.modal-footer .btn-block+.btn-block {
+    margin-left: 0;
+}
+
+.modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+
+    .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-sm {
+        width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        width: 900px;
+    }
+}
+
+
+/* Contactform 7 */
+.form-control-group {
+    display: inline-flex;
+}
+
+.form-control {
+    display: inline-block;
+}
+
+.form-control label {
+    display: block;
+}
+.ml-xs {
+    margin-left: 20px;
+}
+
+.wpcf7-form-control-wrap {
+    display: inline-block;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.wpcf7-form-control-wrap.text-aantal,
+.wpcf7-form-control-wrap.text-bedrag {
+    margin-bottom: 10px;
+}
+
+.wpcf7-form-control-wrap .wpcf7-form-control.wpcf7-text {
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+.wpcf7-checkbox .wpcf7-list-item.first.last {
+    margin-left: 0;
+}
+
+.wpcf7-textarea {
+    border: 1px solid #ccc;
+}
+
+.wpcf7-submit.button {
+    display: inline-block;
+    width: 130px;
+    border: 1px solid;
+    padding: 16px;
+    font-size: 16px;
+    background: white;
+}
+
+.wpcf7-submit:hover {
+    cursor: pointer;
+    border-color: black;
+    background: #ccc;
+}
+
+.footnote {
+    display: block;
+    font-size: 9px;
+    width: 150px;
+    padding-bottom: 10px;
+}
+@media (max-width: 767.98px) {
+    h1.site-title a {
+        font-size: 60px;
+        line-height: 65px;
+        padding-left: 20px;
+    }
+
+    .footer-group {
+        position: absolute;
+        width: 100%;
+    }
+
+    .grid-col-4 {
+        grid-template-columns: unset;
+    }
+
 }
