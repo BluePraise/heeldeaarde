@@ -6,6 +6,7 @@
 
 get_header();
 ?>
+<div class="wrapper">
 
 <main id="site-content" role="main">
 

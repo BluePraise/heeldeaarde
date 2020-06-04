@@ -10,6 +10,8 @@
 get_header();
 ?>
 
+
+<div class="wrapper bg">
 <main id="site-content" role="main">
 
     <?php
@@ -18,8 +20,9 @@ get_header();
 
         while ( have_posts() ):
             the_post(); ?>
-
-        <h1 class="site-title"><a href="<?php echo site_url('magazine') ?>">Heel <br>de stad <br>Heel de<br> Aarde</a></h1>
+<!--
+        <h1 class="site-title"><a href="<?php //echo site_url('magazine') ?>">Heel <br>de stad <br>Heel de<br> Aarde</a></h1> -->
+        <h1 class="site-title">Heel <br>de stad <br>Heel de<br> Aarde</h1>
 
 
 

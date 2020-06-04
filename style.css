@@ -143,6 +143,14 @@ img {
     grid-template-columns: repeat(4, 25%);
 }
 
+h1.site-title {
+    display: block;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 100px;
+    padding-left: 60px;
+}
+
 h1.site-title a {
     display: block;
     font-size: 100px;
@@ -155,30 +163,56 @@ h1.site-title a {
     background-color: black;
     bottom: 0;
     left: 0;
+    position: absolute;
+    width: 100%;
 }
 
-.footer-group .grid {
+.footer-group .flex {
+    justify-content: space-between;
+    align-items: center;
     border-top: 1px solid white;
     margin-left: 20px;
     margin-right: 20px;
     padding: 10px 20px;
 }
 
-.footer-group .grid div {
-    display: flex;
-}
-
-.footer-social {
-    grid-column-start: 1;
-    grid-column-end: 3;
+.footer-menu {
+    display: inline-flex;
     align-items: center;
 }
 
-.footer-social a,
-.footer-social .link {
-    margin-right: 40px;
+.footer-social {
+    margin-left: 60px;
 }
 
+.social-icons a {
+    display: inline-block;
+}
+
+.footer-menu a.nav-link,
+.footer-menu .link {
+    margin-right: 40px;
+}
+.link-icon-insta {
+    background: white;
+    border-radius: 100px;
+    padding: 3px 10px;
+    margin-right: 20px;
+}
+
+.link-icon-fb {
+    background: white;
+    border-radius: 100px;
+    padding: 3px 10px;
+    margin-right: 10px;
+}
+
+.link-icon-insta svg,
+.link-icon-fb svg {
+    width: 20px;
+    padding-top: 4px;
+    stroke: black;
+}
 
 .footer-credits {
     grid-column-start: 4;
@@ -490,6 +524,7 @@ button.close {
 /* Contactform 7 */
 .form-control-group {
     display: inline-flex;
+    justify-content: space-between;
 }
 
 .form-control {
@@ -540,6 +575,11 @@ button.close {
     cursor: pointer;
     border-color: black;
     background: #ccc;
+}
+p.subtitle {
+    background: #ebebeb;
+    padding: 20px;
+    font-size: 14px;
 }
 
 .footnote {
