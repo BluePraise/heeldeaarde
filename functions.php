@@ -40,7 +40,22 @@ function my_myme_types($mime_types){
 add_filter('upload_mimes', 'my_myme_types');
 
 
-
+add_action( 'widgets_init', 'heeldeaarde_register_sidebars' );
+function heeldeaarde_register_sidebars() {
+    register_sidebar(
+        array(
+            'name' => esc_html('Balk Onderaan', 'heeldeaarde'),
+            'description' => esc_html(
+                'Dit betreft de balk onderaan',
+                'heeldeaarde'
+            ),
+            'id' => 'footer-widget-area-1',
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>'
+    ));
+}
 
 
 // Remove Actions

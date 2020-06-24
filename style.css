@@ -85,6 +85,8 @@ hr {
     padding-right: 20px;
     overflow: hidden;
     flex: 1;
+    display: inline-flex;
+    justify-content: space-between;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -144,19 +146,16 @@ img {
 }
 
 h1.site-title {
-    display: block;
+    display: inline-block;
     font-size: 100px;
     font-weight: 400;
     line-height: 100px;
     padding-left: 60px;
+    margin-bottom: 80px;
 }
 
-h1.site-title a {
-    display: block;
-    font-size: 100px;
-    font-weight: 400;
-    line-height: 100px;
-    padding-left: 60px;
+.fb-page {
+    display: none !important;
 }
 
 .footer-group {
@@ -187,6 +186,12 @@ h1.site-title a {
 
 .social-icons a {
     display: inline-block;
+}
+
+a.social-link{
+    color: white;
+    padding: 3px 10px;
+    margin-right: 20px;
 }
 
 .footer-menu a.nav-link,
@@ -589,7 +594,7 @@ p.subtitle {
     padding-bottom: 10px;
 }
 @media (max-width: 767.98px) {
-    h1.site-title a {
+    h1.site-title {
         font-size: 60px;
         line-height: 65px;
         padding-left: 20px;

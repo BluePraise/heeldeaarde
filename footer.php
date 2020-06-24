@@ -3,7 +3,9 @@
             <footer id="site-footer" role="contentinfo" class="footer-group">
 
                 <div class="flex">
-
+                    <?php if ( is_active_sidebar( 'footer-widget-area-1' ) ) : ?>
+                        <?php dynamic_sidebar('footer-widget-area-1'); ?>
+                    <?php else: ?>
                     <div class="footer-menu">
                         <a class="nav-link" href="<?php echo site_url(); ?>" alt="back to home"></i> Home</a>
                         <a class="nav-link" href="<?php echo site_url('/magazine'); ?>" alt="to magazine"></i>Catalogus</a>
@@ -11,11 +13,11 @@
                         <button type="button" class="link" data-toggle="modal" data-target="#myModal">Bestel</button>
                         <a href="mailto:hallo@heeldeaarde.net" alt="email will open to contact site">Contact</a>
                         <div class="footer-social social-icons">
-                            <a class="link-icon-insta" href="https://www.instagram.com/heeldeaarde/" alt="link to instagram"> <i data-feather="instagram"></i></a>
-                            <a class="link-icon-fb" href="https://www.facebook.com/heeldeaardetijdschrift" alt="link to facebook"> <i data-feather="facebook"></i></a>
-                    </div>
-                    </div><!-- .footer-social -->
-
+                            <a class="social-link" href="https://www.instagram.com/heeldeaarde/" alt="link to instagram">Instagram</a>
+                            <a class="social-link" href="https://www.facebook.com/heeldeaardegids" alt="link to facebook">Facebook</a>
+                        </div> <!-- .footer-social -->
+                    </div> <!-- .footer-menu -->
+                    <?php endif; ?>
 
                     <div class="footer-credits">
 
@@ -38,20 +40,20 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title text-gray-dark">Ik bestel graag een papieren catalogus
-<br>en bepaal zelf de prijs via een donatie.</h4>
+              <h4 class="modal-title text-gray-dark">Ik bestel graag een papieren catalogus <br>en bepaal zelf het bedrag via een donatie</h4>
             </div>
             <div class="modal-body">
-              <?php echo do_shortcode( '[contact-form-7 id="35" title="Contactformulier 1"]'); ?>
+              <?php echo do_shortcode( '[contact-form-7 id="88" title="Bestelformulier"]'); ?>
             </div>
           </div>
 
         </div>
     </div>
-
-        <?php wp_footer(); ?>
         <script>
-            feather.replace()
+            $('.js-toggle-on-click').on('click') {
+                $(this).toggle(400);
+            }
         </script>
+        <?php wp_footer(); ?>
     </body>
 </html>
